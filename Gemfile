@@ -76,3 +76,7 @@ group :test do
 end
 
 gem "pg"
+gem "guard"
+gem "guard-rspec"
+gem "guard-spork"
+gem "spork"

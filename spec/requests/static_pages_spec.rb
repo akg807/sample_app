@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "Static pages", type: :feature do
+  # let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+
   describe "Home page" do
     it "has the h1 'Sample App'" do
       visit "/static_pages/home"
@@ -9,7 +11,12 @@ RSpec.describe "Static pages", type: :feature do
 
     it "has the title 'Home'" do
       visit "/static_pages/home"
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Home")
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
+    end
+
+    it "does not have the custom title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title("| Home")
     end
   end
 
@@ -21,7 +28,7 @@ RSpec.describe "Static pages", type: :feature do
 
     it "has the title 'Help'" do
       visit "/static_pages/help"
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Help")
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
     end
   end
 
@@ -33,7 +40,19 @@ RSpec.describe "Static pages", type: :feature do
 
     it "has the title 'About Us'" do
       visit "/static_pages/about"
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App | About Us")
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
+    end
+  end
+
+  describe "Contact page" do
+    it "has the h1 'Contact'" do
+      visit "/static_pages/contact"
+      expect(page).to have_selector("h1", text: "Contact")
+    end
+
+    it "has the title 'Contact'" do
+      visit "/static_pages/contact"
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
     end
   end
 end
