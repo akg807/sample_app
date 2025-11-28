@@ -76,3 +76,4 @@ end
 # Production database
 gem "pg"
 gem "cssbundling-rails"
+gem "bcrypt-ruby"
