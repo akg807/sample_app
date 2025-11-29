@@ -91,6 +91,8 @@ GEM
       msgpack (~> 1.2)
     bootstrap (5.3.5)
       popper_js (>= 2.11.8, < 3)
+    bootstrap-will_paginate (1.0.0)
+      will_paginate
     brakeman (7.1.1)
       racc
     builder (3.3.0)
@@ -129,6 +131,8 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
+    faker (3.5.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -470,6 +474,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
@@ -489,12 +494,14 @@ DEPENDENCIES
   bcrypt-ruby
   bootsnap
   bootstrap (~> 5.3)
+  bootstrap-will_paginate (~> 1.0.0)
   brakeman
   bundler-audit
   capybara
   cssbundling-rails
   debug
   factory_bot_rails
+  faker
   guard
   guard-rspec
   image_processing (~> 1.2)
@@ -521,6 +528,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   web-console
+  will_paginate (~> 3.3.0)
 
 RUBY VERSION
    ruby 3.3.5p100
