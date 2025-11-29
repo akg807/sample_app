@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_29_210940) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_29_213355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "microposts", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.boolean "admin", default: false

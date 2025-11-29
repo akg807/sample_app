@@ -216,4 +216,98 @@ select {
     }
   }
 }
+/* -------------------------
+   microposts
+   ------------------------- */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.content {
+  display: block;
+}
+
+.timestamp {
+  color: $grayLight;
+  font-size: 0.9rem;     // looks better with Bootstrap
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+/* Sidebar micropost form */
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+/* -------------------------
+   Micropost feed (Bootstrap 5)
+   ------------------------- */
+
+.microposts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .avatar {
+    flex-shrink: 0;
+  }
+
+  .micropost-body {
+    flex-grow: 1;
+  }
+
+  .content {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .timestamp {
+    color: $grayLight;
+    font-size: 0.9rem;
+  }
+}
+/* feed / micropost styling (Bootstrap 5 friendly) */
+.microposts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+
+  .avatar {
+    /* keep avatar size from breaking layout */
+    img.gravatar {
+      display: block;
+      border-radius: 50%;
+    }
+  }
+
+  .micropost-body {
+    .content { margin-top: .25rem; }
+    .timestamp { color: $grayLight; font-size: 0.9rem; }
+  }
+}
 

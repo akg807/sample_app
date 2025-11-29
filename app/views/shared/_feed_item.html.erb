@@ -1,0 +1,30 @@
+<li id="feed-item-<%= feed_item.id %>" class="d-flex align-items-start mb-3 pb-3 border-bottom">
+
+  <!-- Avatar column -->
+  <div class="avatar me-3">
+    <%= link_to feed_item.user do %>
+      <%= gravatar_for feed_item.user, size: 52 %>
+    <% end %>
+  </div>
+
+  <!-- Main content column -->
+  <div class="micropost-body flex-grow-1">
+    <div>
+      <%= link_to feed_item.user.name, feed_item.user, class: "fw-bold me-2" %>
+      <small class="text-muted">Posted <%= time_ago_in_words(feed_item.created_at) %> ago.</small>
+    </div>
+
+    <div class="content mt-2">
+      <%= feed_item.content %>
+    </div>
+
+    <% if current_user?(feed_item.user) %>
+      <div class="mt-2">
+        <%= link_to "delete",
+                    feed_item,
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                    class: "text-danger small" %>
+      </div>
+    <% end %>
+  </div>
+</li>

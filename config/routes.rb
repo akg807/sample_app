@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   # Root
   root "static_pages#home"
 
@@ -8,7 +11,6 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
 
   # Users
-  resources :users
   get "/signup", to: "users#new"   # Friendly signup URL
 
   # Sessions (sign in / sign out)
