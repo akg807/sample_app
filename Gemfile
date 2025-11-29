@@ -77,3 +77,4 @@ end
 gem "pg"
 gem "cssbundling-rails"
 gem "bcrypt-ruby"
+gem "factory_bot_rails"
