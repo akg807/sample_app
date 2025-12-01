@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
   # Root
   root "static_pages#home"
 
@@ -10,13 +7,25 @@ Rails.application.routes.draw do
   get "/about",   to: "static_pages#about"
   get "/contact", to: "static_pages#contact"
 
-  # Users
-  get "/signup", to: "users#new"   # Friendly signup URL
+  # Signup
+  get "/signup", to: "users#new"
+
+  # Users + follow system
+  resources :users do
+    member do
+      get :following
+      get :followers
+    end
+  end
 
   # Sessions (sign in / sign out)
-  get    "/signin",  to: "sessions#new"     # Show login form
-  post   "/sessions", to: "sessions#create" # Submit login form
-  delete "/signout", to: "sessions#destroy" # Log out
+  get    "/signin",  to: "sessions#new"
+  delete "/signout", to: "sessions#destroy"
+  resources :sessions, only: [:new, :create, :destroy]
+
+  # Microposts
+  resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
